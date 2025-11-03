@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class VilleFranceController extends Controller
 {
     /* GET /api/villes
-     * filtres query-string : departement, code_postal, nom (like), lat/lng rayon, etc.
+     * filtres query-string : departement, code_postal, nom (like) etc.
      */
     public function index(Request $request)
     {

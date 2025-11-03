@@ -1,15 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\VilleFrance;
-use App\Http\Resources\VilleFranceResource;
-use App\Http\Controllers\Api\VilleFranceController;
+use App\Http\Controllers\ApiController;
 
+Route::get('/', function () {
+    return view(("welcome"));
+});
 
-Route::prefix('villes')->controller(VilleFranceController::class)->group(function () {
-    Route::get('/', 'index');               // liste + filtres
-    Route::post('/', 'store');              // création
-    Route::get('{ville}', 'show');          // une ville
-    Route::put('{ville}', 'update');        // mise à jour
-    Route::delete('{ville}', 'destroy');    // suppression
+Route::prefix('villes')->controller(ApiController::class)->group(function () {
+    Route::get('/dep/{dep}',"dep");
+    Route::get("/{ville}","ville");
+    Route::get("/code/{code}","code");
 });
