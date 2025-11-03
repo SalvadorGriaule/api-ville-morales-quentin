@@ -39,7 +39,7 @@ class ApiController extends Controller
      */
     public function code(int $code)
     {
-        $res = DB::table('villes_france_free')->where('ville_departement', ($code/1000))->get();
+        $res = DB::table('villes_france_free')->where('ville_departement', intval($code/1000))->get();
 
         return response()->json(['res' => $res]);
     }
